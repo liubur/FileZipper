@@ -1,3 +1,3 @@
 # FileZipper
 
-<b>test</b>
+kazkoks tekstas
