@@ -13,10 +13,10 @@ public class Main {
 		String kelias = "C:\\1";
 		String zipkelias = "C:\\2";
 
-		FileScanner scan1 = new FileScanner();
+		FileScanner scan = new FileScanner();
 
 		FileZipping zip = new FileZipping();
-		zip.createZip2(scan1.getPathList(kelias), kelias, scan1.zipKelioParuosimas(zipkelias));
+		zip.createZip2(scan.getPathList(kelias), kelias, scan.zipKelioParuosimas(zipkelias));
 	}
 
 }

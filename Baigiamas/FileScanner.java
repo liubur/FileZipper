@@ -34,36 +34,6 @@ public class FileScanner {
 		return zipkelias;
 	}
 
-//	// grazina failu saraso masyva
-//	public List<String> failusarasas(String kelias) {
-//
-//		File file = new File(kelias);
-//		objects = file.list();
-//		Failas f = new Failas();
-//
-//		for (int i = 0; i < objects.length; i++) {
-//			if (f.isArFailas(kelias + objects[i])) {
-//				failai.add(objects[i]);
-//			}
-//		}
-//		return failai;
-//	}
-//
-//	// grazina failu saraso lista
-//	public List<String> folderiusarasas(String kelias) {
-//
-//		File file = new File(kelias);
-//		objects = file.list();
-//		Folderis f = new Folderis();
-//
-//		for (int i = 0; i < objects.length; i++) {
-//			if (f.isArFolderis(kelias + objects[i])) {
-//				folderiai.add(objects[i]);
-//			}
-//		}
-//		return folderiai;
-//	}
-	
 	public List<String> getPathList(String dirName) throws IOException {
 	
 	File file1 = new File(dirName);	
