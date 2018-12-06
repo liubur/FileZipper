@@ -1,4 +1,4 @@
-package Darbas;
+package Darbas2;
 
 import javax.swing.JOptionPane;
 
@@ -6,24 +6,19 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		String kelias = JOptionPane.showInputDialog("Folder:");
-		String zipkelias = JOptionPane.showInputDialog("Output folder:");
+		 String kelias = JOptionPane.showInputDialog("Folder:");
+		 String zipkelias = JOptionPane.showInputDialog("Output folder:");
 
-		//reikalingas metodui isArFailas isskirti tik failus (be folderiu)
-		if(kelias.substring(kelias.length() - 1).equals("\\")){
-		}else kelias = kelias + "\\";
+		//String kelias = "C:\\Users\\Akvile\\Desktop\\1";
+		//String zipkelias = "C:\\Users\\Akvile\\Desktop\\2";
 
-		
 		FileScanner scan1 = new FileScanner();
-		
-		//paruosiamas failu sarao masyvas
-		String[] failai = scan1.failusarasas(kelias);
-		System.out.println("-----------------");
-		System.out.println("File and folder list in folder "+ kelias);
-		System.out.println("Output kelias "+ zipkelias);
 
-		
+		// System.out.println("Files and folders from"+ kelias);
+		// System.out.println("Output kelias "+ zipkelias);
 
+		FileZipping zip = new FileZipping();
+		zip.createZip(scan1.kelioparuosimas(kelias), scan1.zipkelioparuosimas(zipkelias));
 	}
 
 }

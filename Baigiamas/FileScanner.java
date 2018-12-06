@@ -1,4 +1,4 @@
-package Darbas;
+package Darbas2;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -6,35 +6,55 @@ import java.util.List;
 
 public class FileScanner {
 
-	//failu ir folderiu saraso talpykla
+	// failu ir folderiu saraso talpykla
 	String[] objects = new String[10];
-	
-	String[] files = new String[10];
-	
-	//grazina failu saraso masyva
-	public String[] failusarasas(String kelias) {
-		
+	// pabandyti su ArrayList
+	List<String> failai = new ArrayList<String>();
+	List<String> folderiai = new ArrayList<String>();
+
+	// pradiniu failu kelio paruosimas
+	public String kelioparuosimas(String kelias) {
+		if (kelias.substring(kelias.length() - 1).equals("\\")) {
+		} else
+			kelias = kelias + "\\";
+		return kelias;
+	}
+
+	// zip kelio paruosimas
+	public String zipkelioparuosimas(String zipkelias) {
+		if (zipkelias.substring(zipkelias.length() - 1).equals("\\")) {
+		} else
+			zipkelias = zipkelias + "\\";
+		return zipkelias;
+	}
+
+	// grazina failu saraso masyva
+	public List<String> failusarasas(String kelias) {
+
 		File file = new File(kelias);
 		objects = file.list();
-		//objects1 = file.list();
 		Failas f = new Failas();
-		
-		int m = 0;
+
 		for (int i = 0; i < objects.length; i++) {
-			if(f.isArFailas(kelias+objects[i])) {
-				files[m] = objects[i];
-				m++;
-				System.out.println(" - failas");
-			}else System.out.println(" - Folderis");
+			if (f.isArFailas(kelias + objects[i])) {
+				failai.add(objects[i]);
+			}
 		}
-		
-		System.out.println("Objects in directory:"+ objects.length);
-		
-		System.out.println("Only Files:");
-		for (int i = 0; i < files.length; i++) {
-			if (files[i] != null)
-			System.out.println(files[i]);
-		}	
-		return objects;
+		return failai;
+	}
+
+	// grazina failu saraso lista
+	public List<String> folderiusarasas(String kelias) {
+
+		File file = new File(kelias);
+		objects = file.list();
+		Folderis f = new Folderis();
+
+		for (int i = 0; i < objects.length; i++) {
+			if (f.isArFolderis(kelias + objects[i])) {
+				folderiai.add(objects[i]);
+			}
+		}
+		return folderiai;
 	}
 }
