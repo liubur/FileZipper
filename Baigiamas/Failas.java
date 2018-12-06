@@ -4,16 +4,7 @@ import java.io.File;
 
 public class Failas {
 
-	private String fileName = "";
 	private boolean arFailas = false;
-
-	public String getFileName() {
-		return fileName;
-	}
-
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
 
 	public boolean isArFailas(String str) {
 		File check = new File(str);
