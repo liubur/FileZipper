@@ -2,38 +2,61 @@ package Darbas2;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+import javax.swing.JOptionPane;
+
 public class FileZipping {
 
-	List<String> failai = new ArrayList<String>();
-	List<String> folderiai = new ArrayList<String>();
+	public void sukurkZip(List<String> objektai, String kelias, String zipkelias, String zipfailas) {
 
-	public void createZip2(List<String> objektai, String kelias, String zipkelias) {
+		SystemOutputs out = new SystemOutputs() {
+			@Override
+			public void zinutesLangas(String zinute, String pavadinimas) {
+				JOptionPane.showMessageDialog(null, zinute, pavadinimas, JOptionPane.INFORMATION_MESSAGE);
+			}
+		};
 
-		//FileScanner scan1 = new FileScanner();
-		if (objektai.size() == 0) {
-			new SystemOuts().messageBox("Nera ko kelti i zip", "Klaida");
-		} else {
+		if (arFolderTuscias(objektai)) {
 			try {
-				FileOutputStream outputfile = new FileOutputStream(zipkelias + "zipfailas.zip");
+				FileOutputStream outputfile = new FileOutputStream(zipkelias + zipfailas + ".zip");
 				ZipOutputStream outputzip = new ZipOutputStream(outputfile);
-
 				// paduodamas failu sarasas kelimui i zip archyva
-				for (String objektas : objektai) {
-					// keliamas failas is saraso i zip faila
-					ZipEntry zip = new ZipEntry(objektas.substring(kelias.length()+1));
-					outputzip.putNextEntry(zip);
+				if (kelias.charAt(kelias.length() - 1) == '\\') {
+					for (String objektas : objektai) {
+						// keliamas failas is saraso i zip faila
+						ZipEntry zip = new ZipEntry(objektas.substring(kelias.length()));
+						outputzip.putNextEntry(zip);
+					}
+				} else {
+					for (String objektas : objektai) {
+						// keliamas failas is saraso i zip faila
+						ZipEntry zip = new ZipEntry(objektas.substring(kelias.length() + 1));
+						outputzip.putNextEntry(zip);
+					}
 				}
 				outputzip.close();
 			} catch (IOException e) {
 				System.out.println(e);
 			}
-		new SystemOuts().messageBox("Zip failas sukurtas", "ZIP");
+			out.zinutesLangas("Zip failas sukurtas", "ZIP");
 		}
+	}
+
+	private boolean arFolderTuscias(List<String> objektai) {
+		SystemOutputs out = new SystemOutputs() {
+			@Override
+			public void zinutesLangas(String zinute, String pavadinimas) {
+				JOptionPane.showMessageDialog(null, zinute, pavadinimas, JOptionPane.INFORMATION_MESSAGE);
+			}
+		};
+		if (objektai.size() == 0) {
+			out.zinutesLangas("Nera ko kelti i zip", "Klaida");
+			return false;
+		} else
+			return true;
 	}
 
 }

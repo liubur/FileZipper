@@ -7,16 +7,19 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 
-		//String kelias = JOptionPane.showInputDialog("Folder:");
+		String kelias = JOptionPane.showInputDialog("Folder:");
 		//String zipkelias = JOptionPane.showInputDialog("Output folder:");
 
-		String kelias = "C:\\1";
+		//String kelias = "C:\\1";
 		String zipkelias = "C:\\2";
 
+		Failas f = new Failas();
+		String zipPavadinimas = f.pavadinimasZipFailui(kelias);
+		
 		FileScanner scan = new FileScanner();
-
+		
 		FileZipping zip = new FileZipping();
-		zip.createZip2(scan.getPathList(kelias), kelias, scan.zipKelioParuosimas(zipkelias));
+		zip.sukurkZip(scan.gautiPathSarasa(kelias), kelias, scan.zipKelioParuosimas(zipkelias), zipPavadinimas);
 	}
 
 }

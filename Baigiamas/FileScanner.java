@@ -12,12 +12,8 @@ import java.util.List;
 
 public class FileScanner {
 
-	// failu ir folderiu saraso talpykla
-	String[] objects = new String[10];
-
-	List<String> failai = new ArrayList<String>();
-	List<String> folderiai = new ArrayList<String>();
-
+	List<String> failai = new ArrayList<>();
+		
 	// pradiniu failu kelio paruosimas
 	public String kelioParuosimas(String kelias) {
 		if (kelias.substring(kelias.length() - 1).equals("\\")) {
@@ -34,18 +30,17 @@ public class FileScanner {
 		return zipkelias;
 	}
 
-	public List<String> getPathList(String dirName) throws IOException {
-	
-	File file1 = new File(dirName);	
-	List<String> failai= new ArrayList<>();
-		
-    Files.walkFileTree(file1.toPath(), new SimpleFileVisitor<Path>() {
-        @Override
-        public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-            failai.add(file.toString());
-            return FileVisitResult.CONTINUE;
-        }
-    });
-    return failai;
+	public List<String> gautiPathSarasa(String dirName) throws IOException {
+
+		File file1 = new File(dirName);
+
+		Files.walkFileTree(file1.toPath(), new SimpleFileVisitor<Path>() {
+			@Override
+			public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
+				failai.add(file.toString());
+				return FileVisitResult.CONTINUE;
+			}
+		});
+		return failai;
 	}
 }
