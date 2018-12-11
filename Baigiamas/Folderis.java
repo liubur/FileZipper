@@ -1,4 +1,4 @@
-package Darbas2;
+package Baigiamas1;
 
 import java.io.File;
 
@@ -14,9 +14,4 @@ public class Folderis {
 			arFolderis = false;
 		return arFolderis;
 	}
-
-	public void setArFolderis(boolean arFolderis) {
-		this.arFolderis = arFolderis;
-	}
-
 }

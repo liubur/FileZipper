@@ -1,19 +1,18 @@
-package Darbas2;
+package Baigiamas1;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-
 import javax.swing.JOptionPane;
 
-public class FileZipping {
+public class FileZipping{
 
 	public void sukurkZip(List<String> objektai, String kelias, String zipkelias, String zipfailas) {
 
 		SystemOutputs out = new SystemOutputs() {
-			@Override
+			//@Override
 			public void zinutesLangas(String zinute, String pavadinimas) {
 				JOptionPane.showMessageDialog(null, zinute, pavadinimas, JOptionPane.INFORMATION_MESSAGE);
 			}
@@ -47,7 +46,7 @@ public class FileZipping {
 
 	private boolean arFolderTuscias(List<String> objektai) {
 		SystemOutputs out = new SystemOutputs() {
-			@Override
+			//@Override
 			public void zinutesLangas(String zinute, String pavadinimas) {
 				JOptionPane.showMessageDialog(null, zinute, pavadinimas, JOptionPane.INFORMATION_MESSAGE);
 			}

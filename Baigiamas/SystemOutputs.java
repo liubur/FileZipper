@@ -1,4 +1,4 @@
-package Darbas2;
+package Baigiamas1;
 
 public interface SystemOutputs {
 

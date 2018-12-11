@@ -1,4 +1,4 @@
-package Darbas2;
+package Baigiamas1;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +12,7 @@ import java.util.List;
 
 public class FileScanner {
 
-	List<String> failai = new ArrayList<>();
+	List<String> failai = new ArrayList<String>();
 		
 	// pradiniu failu kelio paruosimas
 	public String kelioParuosimas(String kelias) {
@@ -43,4 +43,7 @@ public class FileScanner {
 		});
 		return failai;
 	}
+	
+
+	
 }

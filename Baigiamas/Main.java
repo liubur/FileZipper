@@ -1,5 +1,6 @@
-package Darbas2;
+package Baigiamas1;
 
+import java.io.File;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 
@@ -18,8 +19,15 @@ public class Main {
 		
 		FileScanner scan = new FileScanner();
 		
+		//Implementacija Nr.1
 		FileZipping zip = new FileZipping();
 		zip.sukurkZip(scan.gautiPathSarasa(kelias), kelias, scan.zipKelioParuosimas(zipkelias), zipPavadinimas);
+
+		//Implementacija Nr.2
+		File file1 = new File(kelias);
+		FileZippingUsingLib zip1 = new FileZippingUsingLib();
+		zip1.sukurkZipUsingLib(file1, scan.zipKelioParuosimas(zipkelias)+zipPavadinimas+"v2.zip");
+
 	}
 
 }
