@@ -7,12 +7,12 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 import javax.swing.JOptionPane;
 
-public class FileZipping{
+public class FileZipping {
 
-	public void sukurkZip(List<String> objektai, String kelias, String zipkelias, String zipfailas) {
+	public void sukurkZip(List<String> objektai, String kelias, String zipkeliasirzipfailas) {
 
 		SystemOutputs out = new SystemOutputs() {
-			//@Override
+			// @Override
 			public void zinutesLangas(String zinute, String pavadinimas) {
 				JOptionPane.showMessageDialog(null, zinute, pavadinimas, JOptionPane.INFORMATION_MESSAGE);
 			}
@@ -20,7 +20,7 @@ public class FileZipping{
 
 		if (arFolderTuscias(objektai)) {
 			try {
-				FileOutputStream outputfile = new FileOutputStream(zipkelias + zipfailas + ".zip");
+				FileOutputStream outputfile = new FileOutputStream(zipkeliasirzipfailas + ".zip");
 				ZipOutputStream outputzip = new ZipOutputStream(outputfile);
 				// paduodamas failu sarasas kelimui i zip archyva
 				if (kelias.charAt(kelias.length() - 1) == '\\') {
@@ -46,7 +46,7 @@ public class FileZipping{
 
 	private boolean arFolderTuscias(List<String> objektai) {
 		SystemOutputs out = new SystemOutputs() {
-			//@Override
+			// @Override
 			public void zinutesLangas(String zinute, String pavadinimas) {
 				JOptionPane.showMessageDialog(null, zinute, pavadinimas, JOptionPane.INFORMATION_MESSAGE);
 			}
