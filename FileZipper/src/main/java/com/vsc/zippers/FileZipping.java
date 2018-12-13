@@ -1,24 +1,20 @@
-package Zippers;
+package com.vsc.zippers;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-import javax.swing.JOptionPane;
 
-import SystemOuts.SystemOutputs;
+import com.vsc.systemouts.SwingZinute;
+
 
 public class FileZipping {
 
 	public void sukurkZip(List<String> objektai, String kelias, String zipkeliasirzipfailas) {
 
-		SystemOutputs out = new SystemOutputs() {
-			// @Override
-			public void zinutesLangas(String zinute, String pavadinimas) {
-				JOptionPane.showMessageDialog(null, zinute, pavadinimas, JOptionPane.INFORMATION_MESSAGE);
-			}
-		};
+		SwingZinute out = new SwingZinute();
 
 		if (arFolderTuscias(objektai)) {
 			try {
@@ -47,12 +43,8 @@ public class FileZipping {
 	}
 
 	private boolean arFolderTuscias(List<String> objektai) {
-		SystemOutputs out = new SystemOutputs() {
-			// @Override
-			public void zinutesLangas(String zinute, String pavadinimas) {
-				JOptionPane.showMessageDialog(null, zinute, pavadinimas, JOptionPane.INFORMATION_MESSAGE);
-			}
-		};
+		SwingZinute out = new SwingZinute();
+
 		if (objektai.size() == 0) {
 			out.zinutesLangas("Nera ko kelti i zip", "Klaida");
 			return false;

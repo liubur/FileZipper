@@ -1,6 +1,10 @@
-package Zippers;
+package com.vsc.zippers;
+
 
 import java.io.File;
+import java.util.ArrayList;
+
+
 
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;

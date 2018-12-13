@@ -1,4 +1,4 @@
-package SystemOuts;
+package com.vsc.systemouts;
 
 public interface SystemOutputs {
 

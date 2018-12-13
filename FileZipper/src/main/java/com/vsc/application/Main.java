@@ -1,23 +1,26 @@
-package Application;
+package com.vsc.application;
 
 import java.io.File;
 import java.io.IOException;
 import javax.swing.JOptionPane;
-
-import FileScanning.Failas;
-import FileScanning.FileScanner;
-import Zippers.FileZipping;
-import Zippers.FileZippingUsingLib;
+import com.vsc.filescanning.Failas;
+import com.vsc.filescanning.FileScanner;
+import com.vsc.systemouts.SwingZinute;
+import com.vsc.zippers.FileZipping;
+import com.vsc.zippers.FileZippingUsingLib;
 
 public class Main {
 
 	public static void main(String[] args) throws IOException {
-
+		
 		String kelias = JOptionPane.showInputDialog("Folder:");
-		// String zipkelias = JOptionPane.showInputDialog("Output folder:");
-
-		// String kelias = "C:\\1";
+		
 		String zipkelias = "C:\\2";
+		
+		if (kelias == null || kelias.isEmpty()) {
+			SwingZinute out = new SwingZinute();
+			out.zinutesLangas("Programa nutraukta", "Zip");
+		} else {
 
 		Failas f = new Failas();
 		String zipPavadinimas = f.pavadinimasZipFailui(kelias);
@@ -32,7 +35,7 @@ public class Main {
 		File file1 = new File(kelias);
 		FileZippingUsingLib zip1 = new FileZippingUsingLib();
 		zip1.sukurkZipUsingLib(file1, scan.zipKelioParuosimas(zipkelias) + zipPavadinimas);
-
+		}
 	}
 
 }

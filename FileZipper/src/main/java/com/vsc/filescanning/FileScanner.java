@@ -1,4 +1,4 @@
-package FileScanning;
+package com.vsc.filescanning;
 
 import java.io.File;
 import java.io.IOException;
@@ -37,7 +37,6 @@ public class FileScanner {
 			@Override
 			public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
 				failai.add(file.toString());
-				//System.out.println(file);
 				return FileVisitResult.CONTINUE;
 			}
 		});

@@ -1,12 +1,11 @@
-package FileScanning;
+package com.vsc.filescanning;
 
 import java.io.File;
 
 public class Failas {
 
-	private boolean arFailas = false;
-
 	public boolean isArFailas(String str) {
+		boolean arFailas = false;
 		File check = new File(str);
 		if (check.isFile()) {
 			arFailas = true;
