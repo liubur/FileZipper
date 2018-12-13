@@ -1,4 +1,4 @@
-package Baigiamas1.Baigiamas1;
+package FileZipper;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
