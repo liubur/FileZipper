@@ -6,14 +6,13 @@ import java.io.IOException;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-
 import com.vsc.filescanning.FileScanner;
 import com.vsc.systemouts.SwingZinute;
 
 
-public class FileZipping{
+public class FileZipping extends FileZippingAll implements IZipping{
 
-	public void sukurkZip(File objektai, String zipkeliasirzipfailas) throws IOException {
+	public void sukurkZip(File objektai, String zipkeliasirzipfailas, int implementacija) throws IOException {
 		FileScanner scan = new FileScanner();
 		List<String> listas = scan.gautiPathSarasa(objektai);
 		String kelias = objektai.toString();
@@ -40,7 +39,7 @@ public class FileZipping{
 				}
 				outputzip.close();
 			} catch (IOException e) {
-				System.out.println(e);
+				out.zinutesErrorLangas(e, "Klaida");
 			}
 			out.zinutesLangas("Zip failas sukurtas", "ZIP");
 		}

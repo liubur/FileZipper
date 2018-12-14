@@ -7,7 +7,9 @@ import java.io.IOException;
 import org.junit.Test;
 import com.vsc.filescanning.Failas;
 import com.vsc.filescanning.FileScanner;
+import com.vsc.zippers.FileZipping;
 import com.vsc.zippers.FileZippingAll;
+import com.vsc.zippers.IZipping;
 
 public class MyTest {
 	
@@ -22,8 +24,9 @@ public class MyTest {
 		String zipPavadinimas = f.pavadinimasZipFailui(kelias);
 
 		FileScanner scan = new FileScanner();
-		FileZippingAll zip2 = new FileZippingAll();
-		zip2.sukurkpirmas(file, scan.zipKelioParuosimas(zipkelias) + zipPavadinimas);
+		//FileZippingAll zip2 = new FileZippingAll();
+		IZipping zip2 = new FileZipping();
+		zip2.sukurkZip(file, scan.zipKelioParuosimas(zipkelias) + zipPavadinimas, 0);
 		
 		//Resultato failas
 		File result = new File("C:\\2\\1.zip");
