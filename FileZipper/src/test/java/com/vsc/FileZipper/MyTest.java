@@ -1,4 +1,4 @@
-package FileZipper;
+package com.vsc.FileZipper;
 
 import static org.junit.Assert.assertTrue;
 import java.io.File;
