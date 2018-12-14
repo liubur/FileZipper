@@ -43,17 +43,5 @@ public class FileScanner {
 		});
 		return failai;
 	}
-//	public List<String> gautiPathSarasa(String dirName) throws IOException {
-//		File file = new File(dirName);
-//		
-//		Files.walkFileTree(file.toPath(), new SimpleFileVisitor<Path>() {
-//			@Override
-//			public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
-//				failai.add(file.toString());
-//				return FileVisitResult.CONTINUE;
-//			}
-//		});
-//		return failai;
-//	}
 
 }
