@@ -30,17 +30,30 @@ public class FileScanner {
 		return zipkelias;
 	}
 
-	public List<String> gautiPathSarasa(String dirName) throws IOException {
-		File file1 = new File(dirName);
+	public List<String> gautiPathSarasa(File dirName) throws IOException {
+		//File file1 = new File(dirName);
 		
-		Files.walkFileTree(file1.toPath(), new SimpleFileVisitor<Path>() {
+		Files.walkFileTree(dirName.toPath(), new SimpleFileVisitor<Path>() {
 			@Override
 			public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
 				failai.add(file.toString());
+				//System.out.println(failai);
 				return FileVisitResult.CONTINUE;
 			}
 		});
 		return failai;
 	}
+//	public List<String> gautiPathSarasa(String dirName) throws IOException {
+//		File file = new File(dirName);
+//		
+//		Files.walkFileTree(file.toPath(), new SimpleFileVisitor<Path>() {
+//			@Override
+//			public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
+//				failai.add(file.toString());
+//				return FileVisitResult.CONTINUE;
+//			}
+//		});
+//		return failai;
+//	}
 
 }

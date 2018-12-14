@@ -7,28 +7,32 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+import com.vsc.filescanning.FileScanner;
 import com.vsc.systemouts.SwingZinute;
 
 
-public class FileZipping {
+public class FileZipping{
 
-	public void sukurkZip(List<String> objektai, String kelias, String zipkeliasirzipfailas) {
-
+	public void sukurkZip(File objektai, String zipkeliasirzipfailas) throws IOException {
+		FileScanner scan = new FileScanner();
+		List<String> listas = scan.gautiPathSarasa(objektai);
+		String kelias = objektai.toString();
+		
 		SwingZinute out = new SwingZinute();
 
-		if (arFolderTuscias(objektai)) {
+		if (arFolderTuscias(listas)) {
 			try {
 				FileOutputStream outputfile = new FileOutputStream(zipkeliasirzipfailas + ".zip");
 				ZipOutputStream outputzip = new ZipOutputStream(outputfile);
 				// paduodamas failu sarasas kelimui i zip archyva
 				if (kelias.charAt(kelias.length() - 1) == '\\') {
-					for (String objektas : objektai) {
+					for (String objektas : listas) {
 						// keliamas failas is saraso i zip faila
 						ZipEntry zip = new ZipEntry(objektas.substring(kelias.length()));
 						outputzip.putNextEntry(zip);
 					}
 				} else {
-					for (String objektas : objektai) {
+					for (String objektas : listas) {
 						// keliamas failas is saraso i zip faila
 						ZipEntry zip = new ZipEntry(objektas.substring(kelias.length() + 1));
 						outputzip.putNextEntry(zip);
@@ -42,7 +46,7 @@ public class FileZipping {
 		}
 	}
 
-	private boolean arFolderTuscias(List<String> objektai) {
+	public boolean arFolderTuscias(List<String> objektai) {
 		SwingZinute out = new SwingZinute();
 
 		if (objektai.size() == 0) {
